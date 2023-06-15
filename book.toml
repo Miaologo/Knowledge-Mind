@@ -1,6 +1,6 @@
 [book]
 authors = ["MStar_blog"]
-language = "en"
+language = "zh-CN"
 multilingual = false
 src = "src"
 title = "我的知识库"
