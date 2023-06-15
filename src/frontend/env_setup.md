@@ -76,7 +76,7 @@ matlab
 `// 如果当前目录已经是 dot-files 忽略 cd dot-files`
 
 安装homebrew  
-直接使用[homebrew](https://link.juejin.cn?target=https%3A%2F%2Fbrew.sh%2F "https://brew.sh/")提供的地址，可能会被墙或者很慢  
+直接使用[homebrew](https://brew.sh/)提供的地址，可能会被墙或者很慢  
 你可以通过我的配置安装，使用前确保你在我的dot-files目录中
 
 bash
@@ -96,7 +96,7 @@ shell
 
 ### iTerm2
 
-直接通过[iTerm2官网](https://link.juejin.cn?target=https%3A%2F%2Fwww.iterm2.com%2Findex.html "https://www.iterm2.com/index.html") 下载解压使用即可 ![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b1b3c166b29498e8cccd98bb14a5c2b~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
+直接通过[iTerm2官网](https://www.iterm2.com/index.html) 下载解压使用即可 ![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b1b3c166b29498e8cccd98bb14a5c2b~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
 
 #### iterm2调校
 
@@ -126,7 +126,7 @@ shell
 
 #### zsh
 
-安装[oh-my-zsh](https://link.juejin.cn?target=https%3A%2F%2Fohmyz.sh%2F "https://ohmyz.sh/")
+安装[oh-my-zsh](https://ohmyz.sh/)
 
 ruby
 
@@ -152,7 +152,7 @@ shell
 
 ### vim
 
-我用 [SpaceVim](https://link.juejin.cn?target=https%3A%2F%2Fspacevim.org%2Fcn%2Fquick-start-guide%2F%23linux-%25E6%2588%2596-macos "https://spacevim.org/cn/quick-start-guide/#linux-%E6%88%96-macos")
+我用 [SpaceVim](https://spacevim.org/cn/quick-start-guide/#linux-%E6%88%96-macos)
 
 ruby
 
@@ -178,7 +178,7 @@ shell
 
 ### nvm
 
-node 版本管理强推 [nvm](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fcreationix%2Fnvm%2Fblob%2Fmaster%2FREADME.md "https://github.com/creationix/nvm/blob/master/README.md")
+node 版本管理强推 [nvm](https://github.com/creationix/nvm/blob/master/README.md)
 
 bash
 
@@ -232,7 +232,7 @@ shell
 
 #### 字体
 
-[homebrew-cask-fonts](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2FHomebrew%2Fhomebrew-cask-fonts "https://github.com/Homebrew/homebrew-cask-fonts")
+[homebrew-cask-fonts](https://github.com/Homebrew/homebrew-cask-fonts)
 
 shell
 
@@ -252,7 +252,7 @@ css
 
 ### vscode
 
-[vscode](https://link.juejin.cn?target=https%3A%2F%2Fcode.visualstudio.com%2F "https://code.visualstudio.com/")
+[vscode](https://code.visualstudio.com/)
 
 通过code命令启动vscode  
 打开 Command + shift + p 输入 shell
@@ -272,7 +272,7 @@ Microsoft Edge
 
 ### snipaste
 
-截图神器, [snipaste官网](https://link.juejin.cn?target=https%3A%2F%2Fzh.snipaste.com%2F "https://zh.snipaste.com/")
+截图神器, [snipaste官网](https://zh.snipaste.com/)
 
 设置文件
 
