@@ -1,0 +1,348 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Frontend - 我的知识库</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../frontend/env_setup.html" class="active"><strong aria-hidden="true">1.</strong> Frontend</a></li><li class="chapter-item expanded "><a href="../iOS/iOS.html"><strong aria-hidden="true">2.</strong> iOSDev</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">我的知识库</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="frontend"><a class="header" href="#frontend">Frontend</a></h1>
+<h2 id="前言"><a class="header" href="#前言">前言</a></h2>
+<p>最近公司电脑换代，公司配了16寸新mbp，原15寸mbp自购后将硬盘全部清理后自用，意味着我要装机2次，程序员的电脑装机意味着大量的配置、软件、插件都要进行设置，还很容易遗漏，在装一个机器后，装第二个机器前专门整理一下并分享出来供大家参考，我是前端程序员所以可能部分内容更适合于前端，大家自行取舍。</p>
+<h2 id="基本内容"><a class="header" href="#基本内容">基本内容</a></h2>
+<h3 id="git"><a class="header" href="#git">git</a></h3>
+<p>在mac终端输入git命令会提示你安装xcode，但是xcode非常大，前端程序员也不太需要，所以大家可以通过下面命令只安装git。</p>
+<p>csharp</p>
+<p>复制代码</p>
+<p><code>$ xcode-select --install $ git init</code></p>
+<h4 id="加速"><a class="header" href="#加速">加速</a></h4>
+<p>没有网络相关问题的忽略该小节</p>
+<p>自己改一下host配置，会有提升但实在有限，还是建议买vpn</p>
+<p>sql</p>
+<p>复制代码</p>
+<p><code># GitHub Start 52.74.223.119 github.com 192.30.253.119 gist.github.com 54.169.195.247 api.github.com 185.199.111.153 assets-cdn.github.com 151.101.76.133 raw.githubusercontent.com 151.101.108.133 user-images.githubusercontent.com 151.101.76.133 gist.githubusercontent.com 151.101.76.133 cloud.githubusercontent.com 151.101.76.133 camo.githubusercontent.com 151.101.76.133 avatars0.githubusercontent.com 151.101.76.133 avatars1.githubusercontent.com 151.101.76.133 avatars2.githubusercontent.com 151.101.76.133 avatars3.githubusercontent.com 151.101.76.133 avatars4.githubusercontent.com 151.101.76.133 avatars5.githubusercontent.com 151.101.76.133 avatars6.githubusercontent.com 151.101.76.133 avatars7.githubusercontent.com 151.101.76.133 avatars8.githubusercontent.com # GitHub End</code></p>
+<p>很多人通过设置ip的方式解决速度慢的问题，但是很多时候即使设置了ip但是clone还是很慢，这里我推荐下面的方法比较好用。</p>
+<p>可以将本来的</p>
+<p>bash</p>
+<p>复制代码</p>
+<p><code>git clone https://github.com/xxx.git</code></p>
+<p>改成：</p>
+<p>bash</p>
+<p>复制代码</p>
+<p><code>git clone https://github.com.cnpmjs.org/xxx.git</code></p>
+<h3 id="我的配置文件"><a class="header" href="#我的配置文件">我的配置文件</a></h3>
+<p>先将一些配置信息clone下来，通过一些脚本的形式帮助快速安装（这套配置是我团队 <strong>风乘</strong> 大神的配置信息,我fork下来进行了部分修改，如果有定制需求可以将其fork下来进行修改使用）</p>
+<p>shell</p>
+<p>复制代码</p>
+<p><code>$ git clone https://github.com/wang516038746/dot-files.git $ cd dot-files $ chmod +x *.sh</code></p>
+<h3 id="ssh"><a class="header" href="#ssh">ssh</a></h3>
+<p>新的电脑, 新的 ssh key，执行后输入密码即可</p>
+<p>perl</p>
+<p>复制代码</p>
+<p><code>$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code></p>
+<h3 id="brew"><a class="header" href="#brew">brew</a></h3>
+<p>进入clone下来的dot-files文件</p>
+<p>matlab</p>
+<p>复制代码</p>
+<p><code>// 如果当前目录已经是 dot-files 忽略 cd dot-files</code></p>
+<p>安装homebrew<br />
+直接使用<a href="https://link.juejin.cn?target=https%3A%2F%2Fbrew.sh%2F" title="https://brew.sh/">homebrew</a>提供的地址，可能会被墙或者很慢<br />
+你可以通过我的配置安装，使用前确保你在我的dot-files目录中</p>
+<p>bash</p>
+<p>复制代码</p>
+<p><code>/bin/bash ./brew_install</code></p>
+<p>**(不保证100%成功，如果没有成功，请自行找其他方法安装) **<br />
+<em>我个人使用的时候经常在这一步卡住</em> <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/57772d3736fe401d9031748dfa9c6288~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" alt="" /> ctrl+c 关闭重新来即可，已下载过部分下载的会很快 ，如果重来时出现这个报错 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b963e1eab3b94d8a9148f10359cf7243~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" alt="" /> 先执行以下面命令， yourname 替换成你的文件夹名字</p>
+<p>shell</p>
+<p>复制代码</p>
+<p><code>$ rm /Users/youname/Library/Caches/Homebrew/portable-ruby-2.6.3_2.yosemite.bottle.tar.gz $ /bin/bash ./brew_install</code></p>
+<h3 id="iterm2"><a class="header" href="#iterm2">iTerm2</a></h3>
+<p>直接通过<a href="https://link.juejin.cn?target=https%3A%2F%2Fwww.iterm2.com%2Findex.html" title="https://www.iterm2.com/index.html">iTerm2官网</a> 下载解压使用即可 <img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b1b3c166b29498e8cccd98bb14a5c2b~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" alt="" /></p>
+<h4 id="iterm2调校"><a class="header" href="#iterm2调校">iterm2调校</a></h4>
+<p>配置</p>
+<p>shell</p>
+<p>复制代码</p>
+<p><code>$ cp iterm2 ~/Library/Application\ Support/iTerm2/DynamicProfiles/</code></p>
+<p>设置生效</p>
+<p>重启 iterm2 后在 <code>Preferences &gt; Profiles</code> 界面应该就能看见导入的配置了</p>
+<p>额外快捷键:</p>
+<ul>
+<li>alt + → : 光标右移一个单词</li>
+<li>alt + ← : 光标右移一个单词</li>
+<li>alt + del: 删除一个单词</li>
+</ul>
+<p>一些设置，可以参考</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b34eb57e39cf4e5286a3c87e290bb824~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" alt="" /></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5cfae8f0614245538de9361cd3c194e6~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" alt="" /></p>
+<h4 id="zsh"><a class="header" href="#zsh">zsh</a></h4>
+<p>安装<a href="https://link.juejin.cn?target=https%3A%2F%2Fohmyz.sh%2F" title="https://ohmyz.sh/">oh-my-zsh</a></p>
+<p>ruby</p>
+<p>复制代码</p>
+<p><code>$ sh zsh_install.sh</code> </p>
+<p>安装高亮插件</p>
+<p>ruby</p>
+<p>复制代码</p>
+<p><code>$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</code></p>
+<p>zsh配置</p>
+<p>shell</p>
+<p>复制代码</p>
+<p><code>$ cp .zshrc ~/.zshrc $ source ~/.zshrc</code></p>
+<h3 id="vim"><a class="header" href="#vim">vim</a></h3>
+<p>我用 <a href="https://link.juejin.cn?target=https%3A%2F%2Fspacevim.org%2Fcn%2Fquick-start-guide%2F%23linux-%25E6%2588%2596-macos" title="https://spacevim.org/cn/quick-start-guide/#linux-%E6%88%96-macos">SpaceVim</a></p>
+<p>ruby</p>
+<p>复制代码</p>
+<p><code>$ curl -sLf https://spacevim.org/cn/install.sh | bash -s -- -h</code></p>
+<p>建议重装下 vim, 覆盖系统 vim</p>
+<p>ruby</p>
+<p>复制代码</p>
+<p><code>$ brew reinstall vim</code></p>
+<p><code>SpaceVim</code> 配置</p>
+<p>shell</p>
+<p>复制代码</p>
+<p><code>$ cp .space-vim.toml ~/.SpaceVim.d/init.toml</code></p>
+<h3 id="nvm"><a class="header" href="#nvm">nvm</a></h3>
+<p>node 版本管理强推 <a href="https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fcreationix%2Fnvm%2Fblob%2Fmaster%2FREADME.md" title="https://github.com/creationix/nvm/blob/master/README.md">nvm</a></p>
+<p>bash</p>
+<p>复制代码</p>
+<p><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash</code></p>
+<p>nvm 懒加载, 提高 zsh 第一次打开速度, 请根据实际情况选择添加, 会影响默认 nvm 指令, 替换 nvm 放入 zshrc 中的内容即可(已经执行过 <code>cp .zshrc ~/.zshrc</code>可忽略 )</p>
+<p>bash</p>
+<p>复制代码</p>
+<p><code>export PATH=&quot;~/.nvm/versions/node/v10.14.2/bin:$PATH&quot; nvm(){    unfunction &quot;nvm&quot;    [ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;   # This loads nvm    [ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_↷    nvm &quot;$@&quot; }</code></p>
+<h4 id="node-npm"><a class="header" href="#node-npm">node npm</a></h4>
+<p>ruby</p>
+<p>复制代码</p>
+<p><code>$ nvm install 10 $ nvm alias default 10</code></p>
+<p>安装 npm 全局依赖, 安装列表见文件 <code>brew-casks</code></p>
+<p>shell</p>
+<p>复制代码</p>
+<p><code>$ ./npm.sh $ nrm use taobao</code></p>
+<h4 id="yarn"><a class="header" href="#yarn">yarn</a></h4>
+<p>使用 brew 安装 yarn</p>
+<p>css</p>
+<p>复制代码</p>
+<p><code>$ brew install yarn --without-node</code></p>
+<h4 id="brew安装其他软件"><a class="header" href="#brew安装其他软件">brew安装其他软件</a></h4>
+<p>通过brew安装软件, 建议最后安装, 安装列表见文件 <code>brew-casks</code></p>
+<p>shell</p>
+<p>复制代码</p>
+<p><code>$ ./brew.sh</code></p>
+<h4 id="字体"><a class="header" href="#字体">字体</a></h4>
+<p><a href="https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2FHomebrew%2Fhomebrew-cask-fonts" title="https://github.com/Homebrew/homebrew-cask-fonts">homebrew-cask-fonts</a></p>
+<p>shell</p>
+<p>复制代码</p>
+<p><code>$ brew tap homebrew/cask-fonts</code></p>
+<p>字体推荐 <code>Fira Code</code></p>
+<p>css</p>
+<p>复制代码</p>
+<p><code>$ brew cask install font-fira-code $ brew cask install font-meslo-for-powerline $ brew cask install font-sarasa-gothic          # 更纱黑体</code></p>
+<h2 id="工具类软件"><a class="header" href="#工具类软件">工具类软件</a></h2>
+<h3 id="vscode"><a class="header" href="#vscode">vscode</a></h3>
+<p><a href="https://link.juejin.cn?target=https%3A%2F%2Fcode.visualstudio.com%2F" title="https://code.visualstudio.com/">vscode</a></p>
+<p>通过code命令启动vscode<br />
+打开 Command + shift + p 输入 shell</p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f1637c5398b4bd3896d027a94088cc7~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp" alt="" /></p>
+<p>迁移插件及配置信息<br />
+通过 Settings Sync 扩展</p>
+<h3 id="浏览器"><a class="header" href="#浏览器">浏览器</a></h3>
+<p>chrome 浏览器<br />
+google账号可以把包括浏览记录在内的所有信息迁移</p>
+<p>Microsoft Edge<br />
+这个真的香，谁用谁知道，反正我除了工作时用chrome，业余活动都用Edge</p>
+<h3 id="snipaste"><a class="header" href="#snipaste">snipaste</a></h3>
+<p>截图神器, <a href="https://link.juejin.cn?target=https%3A%2F%2Fzh.snipaste.com%2F" title="https://zh.snipaste.com/">snipaste官网</a></p>
+<p>设置文件</p>
+<p>shell</p>
+<p>复制代码</p>
+<p><code>$ cp .snipaste ~/.snipaste/config.ini</code></p>
+<p>快捷键</p>
+<ul>
+<li>⌘ + ⌃ + a : 截图</li>
+</ul>
+<h3 id="paste"><a class="header" href="#paste">paste</a></h3>
+<p>拷贝粘贴神器<br />
+会记录你复制的历史 ⌘ + shift + v 选择粘贴内容</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next" href="../iOS/iOS.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next" href="../iOS/iOS.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
